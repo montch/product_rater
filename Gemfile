@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.1'
 gem 'rails', github: "rails/rails", branch: "4-2-stable"
 
 # Use postgresql as the database for Active Record
@@ -30,6 +30,10 @@ gem 'puma'
 
 gem 'hamlit-rails'
 gem 'bourbon'
+
+group :production  do
+  gem 'rails_12factor'
+end
 
 
 group :development, :test do
