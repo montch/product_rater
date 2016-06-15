@@ -5,6 +5,7 @@ class RatingsController < ApplicationController
   # GET /ratings.json
   def index
     @ratings = Rating.all
+    @by_product = Product.all.map { |g| {g.product_name => Rating.where(product_id: g.id)} }
   end
 
   # GET /ratings/1
@@ -62,13 +63,13 @@ class RatingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rating
-      @rating = Rating.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rating
+    @rating = Rating.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def rating_params
-      params.require(:rating).permit(:score, :product_id, :source_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def rating_params
+    params.require(:rating).permit(:score, :product_id, :source_id)
+  end
 end

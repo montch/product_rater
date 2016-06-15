@@ -1,0 +1,13 @@
+- if @by_product.present?
+  - @by_product.each do |k|
+    %p= "Product : #{k.keys.first.to_s}"
+    - total = 0
+    - score_str = ""
+    - k.values.flatten.each do |v|
+      - score_str = " #{score_str} #{v.score.to_i} "
+      -total = total + v.score.to_i
+    %p Scores:
+    %p= score_str
+    %p Avg:
+    %p= total.to_f / k.values.flatten.count.to_f
+    %hr

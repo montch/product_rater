@@ -6,6 +6,10 @@
       %tr
         %th{:colspan => "3"}
     %tbody
+      = link_to 'New Rating', new_rating_path
+      %hr
+      = render 'grid'
+      %p
       - @ratings.each do |rating|
         %tr
           %td
