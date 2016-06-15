@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: ratings
+#
+#  id         :integer          not null, primary key
+#  score      :integer
+#  product_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score: 1
+  product_id: 1
+
+two:
+  score: 1
+  product_id: 1

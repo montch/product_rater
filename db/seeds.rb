@@ -1,0 +1,5 @@
+Source.create(name: 'Mark')
+Source.create(name: 'Wendy')
+Product.create(product_name: 'test 1', product_type: 'widget')
+Product.create(product_name: 'test 2', product_type: 'widget')
+Product.create(product_name: 'test 3', product_type: 'widget')

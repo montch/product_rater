@@ -1,0 +1,14 @@
+= form_for(@rating) do |f|
+  - if @rating.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@rating.errors.count, "error")
+        prohibited this rating from being saved:
+      %ul
+        - @rating.errors.full_messages.each do |message|
+          %li= message
+  = f.select(:score, scores_for_select, :prompt => 'Select')
+  = f.select(:product_id, products_for_select, :prompt => 'Select')
+  = f.select(:source_id, sources_for_select, :prompt => 'Select')
+  .actions
+    = f.submit
