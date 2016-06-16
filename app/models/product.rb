@@ -7,6 +7,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  product_type :string
+#  status       :string
 #
 
 class Product < ActiveRecord::Base
