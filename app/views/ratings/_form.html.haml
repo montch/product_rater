@@ -7,8 +7,8 @@
       %ul
         - @rating.errors.full_messages.each do |message|
           %li= message
-  = f.select(:score, scores_for_select, :prompt => 'Select')
   = f.select(:product_id, products_for_select, :prompt => 'Select')
+  = f.select(:score, scores_for_select, :prompt => 'Select')
   = f.select(:source_id, sources_for_select, :prompt => 'Select')
   .actions
     = f.submit
