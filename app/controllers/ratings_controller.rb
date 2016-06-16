@@ -6,6 +6,7 @@ class RatingsController < ApplicationController
   def index
     @ratings = Rating.all
     @by_product = Product.all.map { |g| {g.product_name => Rating.where(product_id: g.id)} }
+    top_five
   end
 
   # GET /ratings/1
@@ -72,4 +73,16 @@ class RatingsController < ApplicationController
   def rating_params
     params.require(:rating).permit(:score, :product_id, :source_id)
   end
+
+  def top_five
+    product_scores = []
+    Product.all.each do |p|
+      c= 0
+      score_sum = {p.product_name => ( c + p.ratings.map { |r| r.score }.reduce(0, :+).to_f  / p.ratings.count ).to_f }
+      product_scores.push(score_sum)
+    end
+    @top_five = product_scores.sort_by { |hsh| hsh.values }.reverse.first(5)
+  end
+
+
 end
