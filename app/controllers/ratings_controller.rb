@@ -7,6 +7,7 @@ class RatingsController < ApplicationController
     @ratings = Rating.all
     @by_product = Product.all.map { |g| {g.product_name => Rating.where(product_id: g.id)} }
     scores_desc
+    top_active
   end
 
   # GET /ratings/1
