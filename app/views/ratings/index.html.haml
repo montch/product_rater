@@ -8,8 +8,12 @@
     %tbody
       = link_to 'New Rating', new_rating_path
       %hr
-        %h3 Top 5
-        - @top_five.each do |t|
+        %h3 Top Active
+        - @top_active.each do |t|
+          %p= " #{t.keys.first.to_s} - #{t.values.first} "
+      %hr
+        %h3 Scores
+        - @scores_desc.each do |t|
           %p= " #{t.keys.first.to_s} - #{t.values.first} "
       %hr
       = render 'grid'
