@@ -81,7 +81,7 @@ class RatingsController < ApplicationController
       score_sum = {p.product_name => ( c + p.ratings.map { |r| r.score }.reduce(0, :+).to_f  / p.ratings.count ).to_f }
       product_scores.push(score_sum)
     end
-    @top_five = product_scores.sort_by { |hsh| hsh.values }.reverse.first(5)
+    @top_five = product_scores.sort_by { |hsh| hsh.values }.reverse
   end
 
 
